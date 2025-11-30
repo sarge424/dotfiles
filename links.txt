@@ -1,0 +1,2 @@
+nixos /etc/nixos
+mango ~/.config/mango
