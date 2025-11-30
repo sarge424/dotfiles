@@ -1,2 +1,3 @@
 nixos /etc/nixos
 mango ~/.config/mango
+waybar ~/.config/waybar

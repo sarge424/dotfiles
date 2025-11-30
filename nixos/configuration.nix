@@ -91,6 +91,7 @@
   environment.systemPackages = with pkgs; [
   # Utils
   git                # Version management
+  gh                 # GitHub
   vim                # Text editor
   fastfetch          # See system specs
   btop               # Task manager
@@ -112,6 +113,11 @@
   wl-clipboard       # Clipboard manager
   grim               # Screenshot
   slurp              # Screengrab
+
+  # Audio
+  pamixer            # Audio controls
+  pavucontrol
+  pulseaudio
   ];
   
   # Fonts

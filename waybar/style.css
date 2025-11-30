@@ -1,0 +1,58 @@
+/* --- GENERAL BAR STYLING --- */
+window#waybar {
+    background: rgba(20, 20, 20, 0.90);
+    color: #e0e0e0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    font-family: "JetBrainsMono Nerd Font", "Nerd Font", monospace;
+    font-size: 12pt;
+}
+
+/* --- MODULES (all) --- */
+label.module {
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+/* spacing between modules on the right side */
+.modules-right > widget:not(:last-child) > label {
+    margin-right: 6px;
+}
+
+/* — HOVER EFFECTS — */
+label.module:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-radius: 4px;
+}
+
+/* --- FIXED MIN WIDTH for speaker & mic modules --- */
+#pulseaudio > label,
+#custom-mic > label {
+    min-width: 2000px;
+}
+
+/* --- MODULE STATE COLORS --- */
+#pulseaudio.muted > label {
+    color: #bb5555;
+}
+
+#custom-mic.enabled > label {
+    color: #ff5555;
+}
+
+#custom-mic.muted > label {
+    color: #888888;
+}
+
+#network.disconnected > label {
+    color: #cc7777;
+}
+
+#battery.warning > label {
+    color: #e5c07b;
+}
+
+#battery.critical > label {
+    color: #e06c75;
+}
