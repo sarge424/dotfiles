@@ -29,17 +29,23 @@ while IFS= read -r line || [[ -n "$line" ]]; do
     # Expand ~ to the full home directory path
     destination=$(eval echo "$destination")
 
-    # Check if the source folder exists
-    if [ ! -d "$destination" ]; then
-        echo "Source directory $destination does not exist. Skipping..."
+    # Check if the source exists
+    if [ ! -e "$destination" ]; then
+        echo "Source $destination does not exist. Skipping..."
         continue
     fi
     
     # Create the target directory in the current directory
     mkdir -p "./$folder"
     
-    # Copy the contents of the source folder into the target folder
-    cp -r "$destination/"* "./$folder/"
-    
-    echo "Copied contents of $destination to ./$folder"
+    # If the source is a directory, copy its contents; if it's a file, copy the file itself
+    if [ -d "$destination" ]; then
+        # Source is a directory, copy its contents
+        cp -r "$destination/"* "./$folder/"
+        echo "Copied contents of directory $destination to ./$folder"
+    elif [ -f "$destination" ]; then
+        # Source is a file, copy the file to the target directory with the same name
+        cp "$destination" "./$folder/$(basename "$destination")"
+        echo "Copied file $destination to ./$folder/$(basename "$destination")"
+    fi
 done < links.txt
