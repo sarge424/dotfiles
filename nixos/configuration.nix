@@ -19,6 +19,7 @@
   
   # Graphics
   hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
 
   # Load NVIDIA drivers (works for Xorg and Wayland)
   services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
@@ -107,6 +108,9 @@
   vscode             # IDE
   xfce.thunar        # File explorer
 
+  # Development
+  zig
+
   # Wayland/GUI stuff
   waybar             # Taskbar
   swaybg             # Wallpaperer
@@ -118,7 +122,21 @@
   pamixer            # Audio controls
   pavucontrol
   pulseaudio
+
+  # Gaming
+  heroic
+  vulkan-tools
+  wine
+  winetricks
   ];
+
+  # Steam
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
   
   # Fonts
   fonts.packages = with pkgs; [
