@@ -20,6 +20,7 @@
   # Graphics
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
+  hardware.opengl.enable = true;
 
   # Load NVIDIA drivers (works for Xorg and Wayland)
   services.xserver.videoDrivers = [ "nvidia" "amdgpu" ];
@@ -70,12 +71,6 @@
     LC_TIME = "en_IN";
   };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.arjun = {
     isNormalUser = true;
@@ -102,6 +97,8 @@
   # GPU stuff
   mesa-demos
   vulkan-tools
+  libGL
+  mesa
 
   # Main apps
   ghostty            # Terminal
@@ -116,13 +113,6 @@
   cmake
   gnumake
   gcc
-
-  # Wayland/GUI stuff
-  waybar             # Taskbar
-  swaybg             # Wallpaperer
-  wl-clipboard       # Clipboard manager
-  grim               # Screenshot
-  slurp              # Screengrab
 
   # Audio
   pamixer            # Audio controls
@@ -155,19 +145,13 @@
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # MangoWC
-  programs.mango.enable = true;
-
-  services.displayManager = {
-    sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
-    sessionPackages = [ pkgs.mangowc ];
-    defaultSession = "mango";
+  services.xserver = {
+    enable = true;
+    windowManager.i3.enable = true;
+    xkb.layout = "us";
   };
 
-  services.xserver = {
+  services.displayManager.sddm = {
     enable = true;
   };
 

@@ -1,4 +1,4 @@
 nixos /etc/nixos
-mango ~/.config/mango
+i3 ~/.config/i3
 waybar ~/.config/waybar
 bash ~/.bashrc
