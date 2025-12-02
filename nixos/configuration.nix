@@ -97,6 +97,7 @@
   fastfetch          # See system specs
   btop               # Task manager
   pciutils           # For lspci
+  busybox            # tons of utils
 
   # GPU stuff
   mesa-demos
@@ -106,10 +107,15 @@
   ghostty            # Terminal
   firefox            # Browser
   vscode             # IDE
-  xfce.thunar        # File explorer
+  pcmanfm            # File explorer
+  signal-desktop
 
   # Development
   zig
+  go
+  cmake
+  gnumake
+  gcc
 
   # Wayland/GUI stuff
   waybar             # Taskbar
@@ -129,6 +135,9 @@
   wine
   winetricks
   ];
+
+  # Enable automounting
+  services.gvfs.enable = true;
 
   # Steam
   programs.steam = {
