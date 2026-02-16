@@ -53,6 +53,18 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Enable bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    settings = {
+      General = {
+        Experimental = true;
+        PowerOnBoot = true;
+      };
+    };
+  };
+  services.blueman.enable = true;
+
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
@@ -71,11 +83,14 @@
     LC_TIME = "en_IN";
   };
 
+  # add docker
+  virtualisation.docker.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.arjun = {
     isNormalUser = true;
     description = "arjun";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
   };
 
@@ -106,6 +121,11 @@
   vscode             # IDE
   pcmanfm            # File explorer
   signal-desktop
+  vesktop
+  ungoogled-chromium
+
+  tailscale
+  tor-browser
 
   # Development
   zig
@@ -113,18 +133,27 @@
   cmake
   gnumake
   gcc
+  aseprite
+  ngrok
 
   # Audio
   pamixer            # Audio controls
   pavucontrol
   pulseaudio
+  moc
+  yt-dlp
 
   # Gaming
   heroic
   vulkan-tools
   wine
   winetricks
+  prismlauncher
+  beyond-all-reason
   ];
+
+  # tailscale
+  services.tailscale.enable = true;
 
   # Enable automounting
   services.gvfs.enable = true;
