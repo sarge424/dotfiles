@@ -64,6 +64,11 @@
     };
   };
   services.blueman.enable = true;
+  hardware.uinput.enable = true;
+  
+  # for games
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -114,6 +119,7 @@
   vulkan-tools
   libGL
   mesa
+  brightnessctl
 
   # Main apps
   ghostty            # Terminal
@@ -123,9 +129,12 @@
   signal-desktop
   vesktop
   ungoogled-chromium
+  calibre
+  mgba
 
   tailscale
   tor-browser
+  i2p
 
   # Development
   zig
@@ -135,6 +144,7 @@
   gcc
   aseprite
   ngrok
+  godot
 
   # Audio
   pamixer            # Audio controls
@@ -150,6 +160,7 @@
   winetricks
   prismlauncher
   beyond-all-reason
+  gamescope
   ];
 
   # tailscale

@@ -4,3 +4,5 @@ if [[ -f "flake.nix" || -f ".dir-locals.nix" ]]; then
 else
     export PS1='\[\033[1;32m\][\u@\h:\w]\$ \[\033[0m\]'  # Light green prompt
 fi
+
+export PATH="$PATH:~/bin"
