@@ -4,6 +4,40 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:CommitMonoNerdFont 14
 
+# --- Theme ---
+set $bg         #000000
+set $bg-alt     #0a0a0a
+set $fg         #d4d4d4
+set $fg-dim     #707070
+set $accent     #7aa2f7
+set $border     #1a1a1a
+
+# --- Window Appearance ---
+
+default_border pixel 1
+default_floating_border pixel 1
+
+hide_edge_borders smart
+smart_borders on
+smart_gaps on
+
+gaps inner 8
+gaps outer 0
+
+# Remove titlebars completely
+for_window [class=".*"] border pixel 1
+
+# Focused window
+client.focused          $accent  $bg  $fg  $accent  $accent
+
+# Inactive windows
+client.unfocused        $bg      $bg  $fg-dim  $border  $border
+
+# Background windows
+client.background       $bg
+
+# Urgent
+client.urgent           #ff5555  $bg  #ffffff  #ff5555  #ff5555
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -31,12 +65,15 @@ bindsym $mod+c exec code
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+# bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
+
+# use rofi instead
+bindsym $mod+d exec --no-startup-id rofi -show drun
 
 # change focus
 bindsym $mod+h focus left
@@ -145,8 +182,27 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# use polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-}
+# bar {
+#     position top
+#     status_command i3status
+# 
+#     font pango:CommitMonoNerdFont 11
+# 
+#     tray_output none
+# 
+#     colors {
+#         background $bg
+#         statusline $fg
+#         separator  $bg
+# 
+#         focused_workspace  $bg $bg $accent
+#         active_workspace   $bg $bg $fg-dim
+#         inactive_workspace $bg $bg $fg-dim
+#         urgent_workspace   #ff5555 #ff5555 #ffffff
+#     }
+# }

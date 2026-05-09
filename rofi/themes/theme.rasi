@@ -1,0 +1,151 @@
+/**
+ * Author: Primetoxinz (OLED mod)
+ */
+
+* {
+    text-color:                  #f2f2f2;
+    background-color:            #000000;
+
+    lightbg:                     #0a0a0a;
+
+    red:                         #f15d22;
+    orange:                      #faa41a;
+    blue:                        #48b9c7;
+    pywal-color:                 #ABE9B3;
+    black-foreground:            #000000;
+
+    selected-normal-foreground:  @text-color;
+    normal-foreground:           @text-color;
+    alternate-normal-background: #000000;
+    selected-urgent-foreground:  @text-color;
+    urgent-foreground:           @text-color;
+    alternate-urgent-background: #000000;
+    active-foreground:           @text-color;
+    selected-active-foreground:  @text-color;
+    alternate-normal-foreground: @text-color;
+    alternate-active-background: #000000;
+
+    bordercolor:                 #111111;
+    normal-background:           #000000;
+    selected-normal-background:  #111111;
+
+    separatorcolor:              @orange;
+    spacing:                     2;
+
+    urgent-background:           @red;
+    alternate-urgent-foreground: @text-color;
+    selected-urgent-background:  @red;
+    alternate-active-foreground: @text-color;
+    selected-active-background:  #111111;
+
+    active-background:           #111111;
+}
+
+/* ---------- WINDOW ---------- */
+window {
+    border: 0;
+    background-color: #000000;
+    border-color: #111111;
+    border-radius: 14px;
+    padding: 5;
+    text-color: #f2f2f2;
+    transparency: "real";
+    width: 20%;
+}
+
+/* ---------- MAIN ---------- */
+mainbox {
+    border: 0;
+    padding: 1%;
+    background-color: #000000;
+    spacing: 1%;
+    children: [ inputbar, listview ];
+}
+
+/* ---------- MESSAGE ---------- */
+message {
+    border: 1px dash 0px 0px;
+    text-color: @orange;
+    padding: 2px 0px 0px;
+    background-color: #000000;
+}
+
+/* ---------- TEXTBOX ---------- */
+textbox {
+    text-color: @text-color;
+    background-color: #000000;
+}
+
+/* ---------- PROMPT ---------- */
+prompt {
+    enabled: true;
+    background-color: #111111;
+    text-color: #f2f2f2;
+    padding: 0.25% 0.75% 0.25% 0.75%;
+    border-radius: 5%;
+    font: "JetBrains Mono Regular 14";
+}
+
+/* ---------- INPUT BAR ---------- */
+inputbar {
+    children: [ prompt, textbox-prompt-colon, entry, case-indicator ];
+    spacing: 0;
+    border: 0px;
+    background-color: #000000;
+}
+
+/* ---------- PROMPT COLON ---------- */
+textbox-prompt-colon {
+    expand: false;
+    str: " ::";
+    margin: 0px 0.3em 0em 0em;
+    text-color: @text-color;
+    background-color: #000000;
+}
+
+/* ---------- LIST ---------- */
+listview {
+    fixed-height: 0;
+    border: 2px 0px 0px;
+    padding: 2px 0px 0px;
+    columns: 1;
+    lines: 10;
+    spacing: 1%;
+    background-color: #000000;
+}
+
+/* ---------- ELEMENTS ---------- */
+element {
+    border: 0;
+    background-color: #000000;
+    text-color: #f2f2f2;
+}
+
+element-icon {
+    size: 32px;
+    text-color: inherit;
+}
+
+element-text {
+    background-color: #000000;
+    text-color: inherit;
+}
+
+/* ---------- SELECTED ---------- */
+element selected {
+    background-color: #111111;
+    text-color: @pywal-color;
+    border-radius: 4px;
+}
+
+/* ---------- INPUT ---------- */
+inputbar {
+    text-color: @orange;
+    background-color: #000000;
+}
+
+/* ---------- BUTTON ---------- */
+button normal {
+    text-color: @orange;
+    background-color: #000000;
+}

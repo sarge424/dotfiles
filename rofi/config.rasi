@@ -1,0 +1,37 @@
+configuration {
+    modi: "window,run,ssh,keys,drun";
+
+    /* ---------- Font ---------- */
+    font: "CommitMono Nerd Font Mono 11";
+
+    fixed-num-lines: true;
+
+    /* ❌ no icons */
+    show-icons: false;
+
+    /* ---------- Appearance ---------- */
+    drun-display-format: "{name}";
+
+    opacity: 0.95;
+
+    display-drun: "";
+
+    eh: 1;
+
+    timeout {
+        action: "kb-cancel";
+        delay: 0;
+    }
+
+    filebrowser {
+        directories-first: true;
+        sorting-method: "name";
+    }
+}
+
+window {
+    width: 35%;
+}
+
+/* ---------- Theme ---------- */
+@theme "./themes/theme.rasi"

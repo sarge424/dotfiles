@@ -114,6 +114,12 @@
   pciutils           # For lspci
   busybox            # tons of utils
 
+  # rice
+  polybar
+  rofi
+  feh
+  dunst
+
   # GPU stuff
   mesa-demos
   vulkan-tools
